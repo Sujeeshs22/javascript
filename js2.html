@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript lab2</title>
+    <style>
+      form {
+        border-radius: 6px;
+        border: 1px solid;
+        padding-left: 20px;
+        width: 340px;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        color: white;
+        font-size: 17px;
+        border-radius: 5px;
+        background: #57ba98;
+        border: none;
+        text-transform: capitalize;
+        width: 240px;
+        margin: 15px 0px 15px 38px;
+        height: 35px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid;
+        padding-bottom: 10px;
+        width: 90%;
+        color: black;
+        background: transparent;
+        margin: 24px 0px 1px;
+      }
+      span {
+        font-size: 12px;
+        display: block;
+      }
+      h1 {
+        display: inline;
+        text-align: center;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" onsubmit="return validate()">
+      <h1>Login Form</h1>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Username"
+      /><br /><span id="name-error"></span><br />
+      <input type="text" name="email" id="email" placeholder="Email" /><br />
+      <span id="email-error"></span><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      /><span id="pass-error"></span><br />
+      <input type="text" name="phone" id="phno" placeholder="Phone" /><br />
+      <span id="phone-error"></span>
+      <button type="submit">submit</button>
+    </form>
+    <script>
+      function validate() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let phone = document.getElementById("phno").value;
+
+        if (name === "" || name.length != 3) {
+          document.getElementById("name-error").innerHTML =
+            "Name minimum 3 characters required";
+          return false;
+        } else {
+          document.getElementById("name-error").innerHTML = "";
+        }
+        if (name.match("[0-9]+")) {
+          document.getElementById("name-error").innerHTML =
+            "Should not contain numbers";
+          return false;
+        } else {
+          document.getElementById("name-error").innerHTML = "";
+        }
+
+        //Email.field
+
+        if (email == "") {
+          document.getElementById("email-error").innerHTML = "Email required";
+          return false;
+        } else {
+          document.getElementById("email-error").innerHTML = "";
+        }
+        if (email.indexOf("@") <= 0 || email.charAt(email.length - 4) != ".") {
+          document.getElementById("email-error").innerHTML = "Invaild email";
+          return false;
+        } else {
+          document.getElementById("email-error").innerHTML = "";
+        }
+
+        //password field
+        if (password == "" || password.length != 6) {
+          document.getElementById("pass-error").innerHTML =
+            "password must contain 6 characters";
+          return false;
+        } else {
+          document.getElementById("pass-error").innerHTML = "";
+        }
+
+        //phone
+        if (phone == "") {
+          document.getElementById("phone-error").innerHTML =
+            "Phone number required";
+          console.log(true);
+          return false;
+        } else {
+          document.getElementById("phone-error").innerHTML = "";
+        }
+        if (isNaN(phone)) {
+          document.getElementById("phone-error").innerHTML =
+            "Inavlid phone number";
+          return false;
+        } else {
+          document.getElementById("phone-error").innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>

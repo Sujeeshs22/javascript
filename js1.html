@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript lab1</title>
+    <script>
+      function calc() {
+        in1 = parseInt(document.getElementById("in1").value);
+        in2 = parseInt(document.getElementById("in2").value);
+        operator = document.getElementById("operator").value;
+
+        if (operator == "+") {
+          document.getElementById("result").value = in1 + in2;
+        }
+
+        if (operator == "-") {
+          document.getElementById("result").value = in1 - in2;
+        }
+        if (operator == "*") {
+          document.getElementById("result").value = in1 * in2;
+        }
+
+        if (operator == "/") {
+          document.getElementById("result").value = in1 / in2;
+        }
+      }
+      function clearal() {
+        document.getElementById("in1").value = "";
+        document.getElementById("in2").value = "";
+        document.getElementById("result").value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1 style="font-weight: normal; text-transform: capitalize">
+        calculator
+      </h1>
+      <input type="text" id="in1" placeholder="Enter number:" /><br /><br />
+      <input type="text" id="in2" placeholder="Enter number:" /><br /><br />
+      <select name="calcu" id="operator">
+        <option value="+">Add</option>
+        <option value="-">Sub</option>
+        <option value="*">Mul</option>
+        <option value="/">div</option>
+      </select>
+      <button onclick="calc()">calculate</button>
+      <br /><br />Result:
+      <input type="text" id="result" placeholder="" /><button
+        onclick="clearal()"
+      >
+        clear
+      </button>
+    </div>
+  </body>
+</html>
